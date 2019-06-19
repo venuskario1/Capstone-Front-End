@@ -10,7 +10,7 @@ import { LessonModel } from '../models/lessonsModel';
 export class LessonsComponent implements OnInit {
   @ViewChild('lessonChild',{static: false}) lessonChild;
 
-  lessons: LessonModel[];
+  lessons: any;
 
   newLesson: {}
 
@@ -18,13 +18,17 @@ export class LessonsComponent implements OnInit {
 
   ngOnInit() {
     this.lessonsService.getLessons().subscribe((data) => {
-      this.lessons = data as LessonModel[];
-      this.lessons = this.lessons.slice(1,6);
-    })
+      console.log(data)
+      this.lessons = data
+      console.log("This is the lessons: ", this.lessons)
+      
+    });
   }
 
-  submitLesson() {
-    this.lessonsService.submitLessons(this.newLesson)
-  }
 
+
+  submitLessons(type1,message) {
+    let result = {type1:type1,message:message}
+    this.lessonsService.submitLessons(result).subscribe(lessonData => console.log(lessonData))
+  }
 }

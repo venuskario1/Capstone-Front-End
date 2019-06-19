@@ -26,14 +26,8 @@
               <label for="country">Sign up for classes</label>
             </div>
             <div class="col-75">
-              <select id="country" name="country">
-                <option value="instrument"></option>
-                <option value="instrument">Piano</option>
-                <option value="instrument">Drums</option>
-                <option value="instrument">Guitar</option>
-                <option value="instrument">Bass</option>
-                <option value="instrument">Violin</option>
-              </select>
+              <label for="psw-repeat"><b>Instrument</b></label>
+              <input type="text" placeholder="Enter an instrument you would like to take lessons in" name="psw-repeat" required #type1>
             </div>
           </div>
           <div class="row">
@@ -41,8 +35,8 @@
               <label for="subject">Leave us a note</label>
             </div>
             <div class="col-75">
-              <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
-              <input type="submit" value="Submit">
+              <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px" required #message></textarea>
+              <button (click)="submitLessons(type1.value, message.value)" type="submit" class="registerbtn">Submit</button>
             </div>
           </div>
         </form>

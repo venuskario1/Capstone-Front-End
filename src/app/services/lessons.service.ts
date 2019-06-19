@@ -9,11 +9,11 @@ export class LessonsService {
   constructor(private http: HttpClient) { }
 
   getLessons() {
-    return this.http.get('   ')
+    return this.http.get('http://127.0.0.1:5000/lessons')
   }
 
-  submitLessons(lesson) {
-    console.log(lesson);
-    // return this.http.post(' ')
+  submitLessons(lessons) {
+    console.log(lessons)
+    return this.http.post('http://127.0.0.1:5000/lessons',lessons)
   }
 }
