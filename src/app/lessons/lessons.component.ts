@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { LessonsService } from '../services/lessons.service';
-import { LessonModel } from '../models/lessonModel';
+import { LessonModel } from '../models/lessonsModel';
 
 @Component({
   selector: 'app-lessons',
@@ -12,7 +12,7 @@ export class LessonsComponent implements OnInit {
 
   lessons: LessonModel[];
 
-  newLesson: {};
+  newLesson: {}
 
   constructor(private lessonsService: LessonsService) { }
 
@@ -24,6 +24,7 @@ export class LessonsComponent implements OnInit {
   }
 
   submitLesson() {
-    this.lessonsService.submitLesson(this.newLesson)
+    this.lessonsService.submitLessons(this.newLesson)
   }
+
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { CustomersService } from '../services/customers.service'
-import { CustomerModel } from '../models/CustomersModel'
+import { CustomersService } from '../services/customers.service';
+import { CustomerModel } from '../models/customerModel';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,7 @@ import { CustomerModel } from '../models/CustomersModel'
 export class HomeComponent implements OnInit {
   @ViewChild('instrumentChild', {static: false}) instrumentChild;
 
-  customers: CustomerModel[];
+  customers: any;
 
   newCustomer: {};
 
@@ -21,14 +21,17 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.customersService.getCustomers().subscribe((data) => {
-      this.customers = data as CustomersService[];
-      this.customers = this.customers.slice(1,6);
+      console.log(data)
+      this.customers = data
+      console.log("This is the customers: ", this.customers)
+      // this.customers = this.customers.slice(1,6);
     });
   }
 
 
 
-  submitCustomer() {
-    this.customersService.submitCustomers(this.newCustomer)
+  submitCustomer(name,email) {
+    let result = {name:name,email:email}
+    this.customersService.submitCustomers(result).subscribe(customerData => console.log(customerData))
   }
 }
