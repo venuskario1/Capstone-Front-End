@@ -1,0 +1,28 @@
+header {
+    background: rgb(255, 17, 0);
+
+}
+
+.nav {
+    background-color: red; 
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height:70px;
+    position: relative;
+    bottom: 50px;
+  }
+  
+  .nav li {
+    display: inline-block;
+    font-size: 30px;
+    padding: 35px;
+    
+  }
+
+  .logo1 {
+    height:1px;
+    width:1%;
+  }
+ 
