@@ -1,4 +1,4 @@
-export interface InstrumentsModel {
+export interface InstrumentModel {
     id: Number,
     kind: String,
     model:String,

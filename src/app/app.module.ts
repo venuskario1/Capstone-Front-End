@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { CustomersComponent } from './customers/customers.component';
+import { ServicesComponent } from './services/services.component';
+import { InstrumentComponent } from './instrument/instrument.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { CustomersComponent } from './customers/customers.component';
     ContactComponent,
     FooterComponent,
     CustomersComponent,
+    ServicesComponent,
+    InstrumentComponent,
   ],
   imports: [
     BrowserModule,
