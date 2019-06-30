@@ -9,11 +9,11 @@ export class LessonsService {
   constructor(private http: HttpClient) { }
 
   getLessons() {
-    return this.http.get('http://127.0.0.1:5000/lessons')
+    return this.http.get('https://music-store-back-end.herokuapp.com/lessons')
   }
 
   submitLessons(lessons) {
     console.log(lessons)
-    return this.http.post('http://127.0.0.1:5000/lessons',lessons)
+    return this.http.post('https://music-store-back-end.herokuapp.com/lessons',lessons)
   }
 }

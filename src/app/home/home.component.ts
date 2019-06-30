@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CustomersService } from '../services/customers.service';
-import { CustomerModel } from '../models/customerModel';
+import { CustomerModel } from '../models/CustomerModel';
 
 @Component({
   selector: 'app-home',

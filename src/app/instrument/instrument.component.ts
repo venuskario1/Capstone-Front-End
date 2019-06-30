@@ -10,7 +10,7 @@ import { InstrumentsService } from '../services/instruments.service';
 export class InstrumentComponent implements OnInit {
 
   instruments: InstrumentModel[];
-  allinstruments: InstrumentModel[];
+  allInstruments: InstrumentModel[];
 
   constructor(private instrumentService: InstrumentsService) { }
 
@@ -19,7 +19,7 @@ export class InstrumentComponent implements OnInit {
     /*find all instruments and send us the data back */
 
     this.instrumentService.getInitialInstruments().subscribe((data) =>{
-      this.allInstrument = data as InstrumentModel[];
+      this.allInstruments = data as InstrumentModel[];
         
     });
 
@@ -29,34 +29,20 @@ export class InstrumentComponent implements OnInit {
     console.log(this.instruments);
   }
 
-  queryInstrument(queryParams){
+  /* ties to your drop down query take in your instruments / filter through array of objects /  and sort them based on the kind of instruments */
+  queryInstruments(queryParams){
     console.log(queryParams);
     this.instruments = [];
     for( var instrument of this.allInstruments) {
-      var addInstrument = true;
 
-      if(queryParams.make != "kind" ) {
-        if(queryParams.make.toLowerCase() != instrument.kind.toLowerCase()) {
-          addInstrument = false; 
-        }
+      if(queryParams.toLowerCase() == instrument.kind.toLowerCase()) {
+        this.instruments.push(instrument) 
+
       }
 
-      if(queryParams.model != "model" ) {
-        if(queryParams.make.toLowerCase() != instrument.model.toLowerCase()) {
-          addInstrument = false; 
-        }
-      }
-
-      if(queryParams.color != "color" ) {
-        if(queryParams.make.toLowerCase() != instrument.color.toLowerCase()) {
-          addInstrument = false; 
-        }
-      }
-
-      if(addInstrument){
-        this.instruments.push(instrument)
-      }
+      console.log(instrument.kind)
     }
+    console.log(this.instruments);
   }
 
   

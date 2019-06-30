@@ -1,11 +1,24 @@
 
+<div class="container">
 
-<div class="search">
-    <form class="example" action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search">Search</i></button>
-    </form>
+  
+  <select id="instrument" name="instrument" #dropdown>
+  
+    <option value="guitars">Guitars</option>
+    <option value="bass">Bass</option>
+    <option value="piano">Piano</option>
+    <option value="violins">Violins</option>
+    <option value="drums">Drums</option>
+    <option value="vocals">Vocals</option>
+    <option value="recording">Recording</option>
+    <option value="speakers">Speakers</option>
+    <option value="mixers">Mixers</option>
+    
+  </select>
+  <button type="button" class="button" (click)="queryInstruments(dropdown.value)">Search</button>
+  
 </div>
+
 
 <div class="row">
   <div class="column" style="background-color:#aaa;">
@@ -51,4 +64,22 @@
     </div>
     <img class = "img" src="https://images.pexels.com/photos/1436141/pexels-photo-1436141.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Trulli" width="500" height="750">
   </div>
+</div>
+
+<div>
+    <table class="bottomcontainer">
+        <tr>
+          <th>Model</th>
+          <th>Color</th>
+          <th>Kind</th>
+          <th>Price</th>
+        </tr>
+        <tr *ngFor="let instrument of instruments"> <!-- use ngFor to iterate through array of instruments and print instrument attributes-->
+          <td>{{ instrument.model }}</td>
+          <td>{{ instrument.color }}</td>
+          <td>{{ instrument.kind }}</td>
+          <td>${{ instrument.price }}</td>
+        </tr>
+    </table>
+  
 </div>
